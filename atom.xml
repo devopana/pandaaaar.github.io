@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://devopana.github.io/pandaaaar.github.io/</id>
+    <title>Gridea</title>
+    <updated>2024-03-06T03:32:51.327Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://devopana.github.io/pandaaaar.github.io/"/>
+    <link rel="self" href="https://devopana.github.io/pandaaaar.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://devopana.github.io/pandaaaar.github.io/images/avatar.png</logo>
+    <icon>https://devopana.github.io/pandaaaar.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[在Windows笔记本上安装Ubuntu双系统]]></title>
+        <id>https://devopana.github.io/pandaaaar.github.io/post/zai-windows-bi-ji-ben-shang-an-zhuang-ubuntu-shuang-xi-tong/</id>
+        <link href="https://devopana.github.io/pandaaaar.github.io/post/zai-windows-bi-ji-ben-shang-an-zhuang-ubuntu-shuang-xi-tong/">
+        </link>
+        <updated>2024-03-05T21:32:05.000Z</updated>
+        <summary type="html"><![CDATA[<p>老师留了装Linux虚拟机的作业，正好我要把双系统装回来，还有人问我装双系统的事，所以就直接写一个教程出来了</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>老师留了装Linux虚拟机的作业，正好我要把双系统装回来，还有人问我装双系统的事，所以就直接写一个教程出来了</p>
+<!-- more -->
+<h3 id="准备材料"><strong>准备材料：</strong></h3>
+<ul>
+<li>Windows笔记本（设备<strong>正在充电</strong>或者<strong>电量充足</strong>）</li>
+<li><strong>8G以上</strong>的U盘</li>
+<li>Rufus：<a href="https://rufus.ie/zh/">官网</a></li>
+<li>Ubuntu桌面版镜像：<a href="https://ubuntu.com/download/desktop">下载地址</a></li>
+<li>（非必需）DiskGenius（或者系统自带的磁盘管理）</li>
+</ul>
+<h2 id="一-准备工作"><strong>一、准备工作</strong></h2>
+<h3 id="1-检查磁盘剩余空间">1. 检查磁盘剩余空间</h3>
+<p>打开DIskGenius或磁盘管理（此电脑右键——显示更多选项——管理——磁盘管理），确认你的硬盘里有足够的未分配空间留给Ubuntu（下图以DiskGenius为例）<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709688840350.png" alt="" loading="lazy"><br>
+分配空间因工作强度而异，个人建议不少于60G</p>
+<h3 id="2-下载ubuntu镜像">2. 下载Ubuntu镜像</h3>
+<p>去<a href="https://ubuntu.com/download/desktop">Ubuntu</a>官网下载桌面版镜像，我这里为了图新鲜选择了最新的23.10版本，追求稳定可以选择LTS的22.04版（<strong>校园网非包月同学注意，桌面版镜像要4-5个G，注意流量开销</strong>）<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709689125317.png" alt="" loading="lazy"><br>
+下载后是如图所示的.iso镜像文件<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709689169911.png" alt="" loading="lazy"></p>
+<h3 id="3-制作启动盘">3. 制作启动盘</h3>
+<p>插入准备好的U盘，打开Rufus（<a href="https://rufus.ie/zh/">下载链接</a>），在设备栏正确选择你刚刚插入的U盘，不确定可以通过名称、容量判断是否为刚刚插入的U盘（<strong>一定要选对！因为制作时会清除U盘所有数据！选错后果自负！！！</strong>）<br>
+引导类型选择<strong>镜像文件</strong>，点击右面的选择，在弹出界面里正确选择你刚刚下载的Ubuntu桌面版镜像<br>
+其余配置按下图配置就好<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709689723526.png" alt="" loading="lazy"><br>
+确认无误后点击下面的开始，会弹出如下提示<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709689770946.png" alt="" loading="lazy"><br>
+选择默认选项，即<strong>以ISO镜像模式写入</strong>即可<br>
+然后等待下面的进度条读完，就代表启动盘制作完成了</p>
+<h2 id="二-安装系统"><strong>二、安装系统</strong></h2>
+<p><em>我没有采集卡，所以从这里往下基本都是拿手机拍照的画面了，观感不好请见谅</em></p>
+<h3 id="1-进入bios设置启动顺序">1. 进入BIOS设置启动顺序</h3>
+<p>确定U盘是插入状态，然后重启电脑，在启动过程中不断按F2进入BIOS（进入方法因电脑品牌而异，如果F2不行可以去搜索自己品牌对应的进入方法）<br>
+进入启动配置界面，把刚刚制作的启动盘调整为第一个启动<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692133573.jpg" alt="" loading="lazy"><br>
+点击下方保存设置，会重新启动电脑（如果没有就先保存后退出，然后再次启动）</p>
+<h3 id="2-安装系统">2. 安装系统</h3>
+<p>BIOS的启动顺序调整无误的话，重启电脑会进入一个黑屏选择栏，选择它默认的<strong>Try and Install Ubuntu</strong>就行<br>
+稍等片刻就可以看见如下的安装界面<br>
+界面语言建议选择英文，因为用户文件夹名的生成是基于界面语言的，英文文件夹可以预防一些问题，后续界面语言还可以调回来（也可以先选中文，同理后续调一下英文，改文件夹名字）<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692350643.jpg" alt="" loading="lazy"><br>
+选择<strong>Install Ubuntu</strong><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692491004.jpg" alt="" loading="lazy"><br>
+键盘布局选择英文<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692600758.jpg" alt="" loading="lazy"><br>
+连接网络，有线的同学可以选择第一个<strong>Wired connection</strong>，但是我这里没有接入网线，所以选择<strong>Connect to a Wi-Fi network</strong>，选择Wi-Fi名，点击右下角的<strong>Connect</strong>即可<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692785739.jpg" alt="" loading="lazy"><br>
+小小补充下，使用校园网的同学如果没有认证的话，可以连接校园网后，点击左上角小白条，然后打开左侧栏的火狐浏览器，进入认证界面完成认证<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709692965503.jpg" alt="" loading="lazy"><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709693003646.jpg" alt="" loading="lazy"><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709693006378.jpg" alt="" loading="lazy"><br>
+可能会遇到热更新的情况，我这里选择更新至最新版（<strong>再次提醒流量开销</strong>）<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709693102294.jpg" alt="" loading="lazy"><br>
+选择安装模式，推荐选择<strong>Full installation</strong>全量安装尝试下<br>
+下面的第一个复选框，<strong>英伟达显卡用户强烈推荐选择</strong>，可以一键安装图形驱动（Linux之父：NVIDIA, fxxk you!）<br>
+第二个复选框是附加媒体格式支持，可以选择<br>
+选择好后点击下一步（<strong>再再次提醒流量开销</strong>）<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709693846756.jpg" alt="" loading="lazy"><br>
+选择<strong>Install Ubuntu 23.10.1 alongside Windows Boot Manager</strong>，与Windows共存<br>
+在这一步也可以手动对分区进行操作，即最后一个选项，建议<strong>不了解的不要使用这种方法</strong><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709693917106.jpg" alt="" loading="lazy"><br>
+下一页会显示它即将要对对应分区进行的更改，如图所示，确认无误点击<strong>Install</strong>安装<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694211651.jpg" alt="" loading="lazy"><br>
+选择时区，这里直接点击地图上的中国板块就可以选择到上海时区了<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694249921.jpg" alt="" loading="lazy"><br>
+设置账户名和密码，每次开机登录或者做需要管理员权限的操作时，都会验证此密码，<strong>请牢记</strong><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694298843.jpg" alt="" loading="lazy"><br>
+选择主题风格，根据个人喜好选择即可，点击<strong>Next</strong>进行安装<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694394725.jpg" alt="" loading="lazy"><br>
+等待安装过程结束，出现如图所示提示，就可以选择<strong>Restart now</strong>进行重启了<br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694506781.jpg" alt="" loading="lazy"><br>
+点击重启过后，稍等片刻会出现如图所示提示，此时<strong>先拔掉U盘，再按回车键</strong>，系统便会重启<br>
+<em>电脑屏幕灰尘有点重，不要在意</em><br>
+<img src="https://devopana.github.io/pandaaaar.github.io//post-images/1709694597324.jpg" alt="" loading="lazy"><br>
+重启后即可进入系统，开始体验Ubuntu吧😋</p>
+<h2 id="三-推荐后续操作"><strong>三、推荐后续操作</strong></h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://devopana.github.io/pandaaaar.github.io/post/hello-gridea/</id>
+        <link href="https://devopana.github.io/pandaaaar.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="https://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
